@@ -8,8 +8,10 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
     "@pchmn/expo-material3-theme": "^1.0.1",
     "@react-native-async-storage/async-storage": "1.17.11",
+    "@react-native-masked-view/masked-view": "0.2.8",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/stack": "^6.3.16",
     "@reduxjs/toolkit": "^1.9.5",
@@ -20,17 +22,19 @@
     "expo-splash-screen": "~0.18.2",
     "expo-status-bar": "~1.4.4",
     "firebase": "^9.20.0",
+    "formik": "^2.2.9",
     "i18n-js": "^4.2.3",
     "react": "18.2.0",
     "react-native": "0.71.7",
+    "react-native-flipper": "^0.190.0",
+    "react-native-gesture-handler": "~2.9.0",
     "react-native-paper": "^5.7.0",
     "react-native-safe-area-context": "4.5.0",
     "react-native-screens": "~3.20.0",
     "react-native-swiper-flatlist": "^3.2.2",
     "react-redux": "^8.0.5",
-    "react-native-gesture-handler": "~2.9.0",
-    "@react-native-masked-view/masked-view": "0.2.8",
-    "@expo/vector-icons": "^13.0.0"
+    "redux-flipper": "^2.0.2",
+    "yup": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

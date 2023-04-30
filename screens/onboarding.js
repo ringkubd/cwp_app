@@ -1,12 +1,30 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Dimensions, View, StyleSheet, Image, Text} from "react-native";
 import {SwiperFlatList} from "react-native-swiper-flatlist";
 import {Button} from "react-native-paper";
 import {MaterialIcons} from "@expo/vector-icons";
 import i18n from "../localization";
+import {useDispatch, useSelector} from "react-redux";
+import {getData} from "../services/storage";
 
 export default function Onboarding(props){
     const {navigation, route} = props;
+    const dispatch = useDispatch();
+    const server = useSelector(state => state.server)
+    useEffect(() => {
+        if (server.api_base !== "" && server.api_key !== ""){
+            navigation.navigate("home")
+        }
+        console.log(server)
+        getData('server_details')
+            .then((d) => {
+                dispatch({
+                    type: 'server/store',
+                    payload: JSON.parse(d)
+                })
+            })
+    }, [server])
+
     return (
         <View style={{flex: 1, flexDirection: 'column'}}>
             <View

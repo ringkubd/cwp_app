@@ -1,7 +1,8 @@
 const initialState = {
-    isLoading: true,
+    isLoading: false,
     api_key: '',
     api_base: '',
+    name: '',
     error: false
 };
 export default function ServerReducer(state = initialState, action){
@@ -11,6 +12,7 @@ export default function ServerReducer(state = initialState, action){
                 isLoading: true,
                 api_key: '',
                 api_base: '',
+                name: '',
                 error: false
             }
         case 'server/error':
@@ -19,7 +21,8 @@ export default function ServerReducer(state = initialState, action){
                 isLoading: false,
                 api_key: '',
                 api_base: '',
-                error: action.payload
+                name: '',
+                error: action.payload.error
             }
         case 'server/store':
             return {
@@ -32,9 +35,9 @@ export default function ServerReducer(state = initialState, action){
             return {
                 ...state,
                 isLoading: false,
-                api_key: state.api_key,
-                api_base: state.api_base,
-                error: false
+                error: false,
             }
+        default:
+            return state
     }
 }
