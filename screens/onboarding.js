@@ -10,20 +10,19 @@ import {getData} from "../services/storage";
 export default function Onboarding(props){
     const {navigation, route} = props;
     const dispatch = useDispatch();
-    const server = useSelector(state => state.server)
     useEffect(() => {
-        if (server.api_base !== "" && server.api_key !== ""){
-            navigation.navigate("home")
-        }
-        console.log(server)
         getData('server_details')
             .then((d) => {
                 dispatch({
                     type: 'server/store',
                     payload: JSON.parse(d)
                 })
+                const server = JSON.parse(d)
+                if (server.api_base && server.api_key){
+                    navigation.navigate("home")
+                }
             })
-    }, [server])
+    }, [])
 
     return (
         <View style={{flex: 1, flexDirection: 'column'}}>

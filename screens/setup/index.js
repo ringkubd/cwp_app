@@ -5,7 +5,7 @@ import {Button, HelperText, TextInput} from "react-native-paper";
 import i18n from "../../localization";
 import {useDispatch} from "react-redux";
 import {storeData} from "../../services/storage";
-export default function Setup(){
+export default function Setup({navigation}){
     const dispatch = useDispatch();
 
     const initialForm = {
@@ -26,6 +26,7 @@ export default function Setup(){
                 type: 'server/store',
                 payload: values
             })
+            navigation.navigate('home')
         })
         pageProps.setSubmitting(false)
     }

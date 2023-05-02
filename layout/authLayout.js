@@ -1,8 +1,8 @@
 import {View, StyleSheet} from "react-native";
 
-export default function AuthLayout({...children}){
+export default function AuthLayout({props, style,children}){
     return (
-        <View style={styles.container}>
+        <View style={[style,styles.container]} {...props}>
             {children}
         </View>
     )
