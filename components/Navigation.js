@@ -5,6 +5,7 @@ import Home from "../screens/Home";
 import {createStackNavigator} from "@react-navigation/stack";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
+import Dashboard from "../screens/dashboard";
 
 const Stack = createStackNavigator();
 export default function Navigation(){
@@ -13,11 +14,11 @@ export default function Navigation(){
     const [onboarding, setOnboarding] = useState(true);
 
     useEffect(() => {
-        if (server.api_base && server.api_key){
+        if (server && server?.api_base && server?.api_key){
             setOnboarding(false)
         }
     }, [server])
-    
+
     return (
         <NavigationContainer>
             <Stack.Navigator>
@@ -36,7 +37,16 @@ export default function Navigation(){
                     name="home"
                     component={Home}
                     options={{
-                        headerShown: false
+                        headerShown: true,
+                        title: 'Home'
+                    }}
+                />
+                <Stack.Screen
+                    name="dashboard"
+                    component={Dashboard}
+                    options={{
+                        headerShown: true,
+                        title: 'Dashboard'
                     }}
                 />
                 <Stack.Screen
@@ -46,6 +56,17 @@ export default function Navigation(){
                         headerShown: false
                     }}
                 />
+                {
+                    !onboarding && (
+                        <Stack.Screen
+                            name="onboarding"
+                            component={Onboarding}
+                            options={{
+                                headerShown: false
+                            }}
+                        />
+                    )
+                }
             </Stack.Navigator>
         </NavigationContainer>
     )

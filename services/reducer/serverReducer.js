@@ -1,3 +1,5 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 const initialState = {
     isLoading: false,
     api_key: '',
@@ -9,11 +11,8 @@ export default function ServerReducer(state = initialState, action){
     switch (action.type){
         case 'server/loading':
             return {
+                ...state,
                 isLoading: true,
-                api_key: '',
-                api_base: '',
-                name: '',
-                error: false
             }
         case 'server/error':
             return {
@@ -37,6 +36,9 @@ export default function ServerReducer(state = initialState, action){
                 isLoading: false,
                 error: false,
             }
+        case 'server/remove':
+            AsyncStorage.clear();
+            return initialState
         default:
             return state
     }

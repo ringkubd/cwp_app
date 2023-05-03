@@ -18,7 +18,7 @@ export default function Onboarding(props){
                     payload: JSON.parse(d)
                 })
                 const server = JSON.parse(d)
-                if (server.api_base && server.api_key){
+                if (server && server?.api_base && server?.api_key){
                     navigation.navigate("home")
                 }
             })

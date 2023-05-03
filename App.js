@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import {Provider} from "react-redux";
-import {store} from "./store";
+import store from "./store";
 import Layout from "./layout";
 import Navigation from "./components/Navigation";
 
