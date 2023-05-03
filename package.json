@@ -2,10 +2,14 @@
   "name": "cwp_app",
   "version": "1.0.0",
   "scripts": {
+    "start_2": "react-native start",
     "start": "expo start --dev-client",
     "android": "expo run:android",
+    "android_2": "react-native run-android",
     "ios": "expo run:ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "test": "jest",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
